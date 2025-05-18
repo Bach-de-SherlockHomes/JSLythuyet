@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sự kiện chuột</title>
+</head>
+<body onkeydown="loadMove(event);" style="height: 10000px;" >
+  <!-- Làm sử dụng sự kiện click chuột để di chuyển hình ảnh một quả bóng. Mỗi lần click quả bóng sẽ được di chuyển sang trái/phải một khoảng cách.-->
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" alt="Error" style="width: 500px; position: relative;left: 0;" id="football">
+   <p style="font-size: 100px;">Click button below to move the image to the right </p>
+   <button style="font-size: 80px; padding: 20px;" onclick="moveballRight();">Click me</button>
+
+  <!-- Di chuyển hình ảnh nhân vật Nobita lên, xuống, sang trái,
+  sang phải sử dụng các phím tương ứng. Việc này được thực hiện bằng cách thay đổi thuộc tính tọa độ của thẻ khi xử lý event. -->
+  <img src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" alt="Error" style="position: absolute; top: 0px;left: 0;right: 0;bottom: 0;" id="nobita_kun" >
+
+   <script>
+    function moveballRight(){
+      let soccer = document.getElementById('football');
+      soccer.style.left = parseInt(soccer.style.left) + 20 +'px';
+    }
+
+    function moveNobitaleft(){
+      let moveleft = document.getElementById('nobita_kun')
+      moveleft.style.left = parseInt(moveleft.style.left) - 10 +'px'
+    }
+    function moveNobitaright(){
+      let moveleft = document.getElementById('nobita_kun')
+      moveleft.style.left = parseInt(moveleft.style.left) + 10 +'px'
+    }
+    function moveNobitadown(){
+      let moveleft = document.getElementById('nobita_kun')
+      moveleft.style.top = parseInt(moveleft.style.top) + 10 +'px'
+    }
+    function moveNobitatop(){
+      let moveleft = document.getElementById('nobita_kun')
+      moveleft.style.top = parseInt(moveleft.style.top) - 10 +'px'
+    }
+
+    function loadMove(event){
+      if (event.key == 'ArrowLeft'){
+        event.preventDefault()
+        moveNobitaleft();
+      }
+      if (event.key == 'ArrowUp'){
+        event.preventDefault()
+        moveNobitatop();
+      }
+      if (event.key == 'ArrowRight'){
+        event.preventDefault()
+       moveNobitaright();
+      }
+      if (event.key == 'ArrowDown'){
+        event.preventDefault()
+        moveNobitadown();
+      }
+    }
+     
+   </script>
+</body>
+</html>
